@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+  
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Aladin" rel="stylesheet">
+    <link href='css/simplelightbox.min.css' rel='stylesheet' type='text/css'>
+  
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"></script>
+    <!-- jquery -->
+    <script src="jquery-3.6.4.min.js"></script>
+    <!-- jquery-end -->
+    <title>Feedback</title>
+
+    <style>
+        .form-container {
+  background-color: #F2F2F2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.feedback-form {
+  background-color: #FFFFFF;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+}
+
+.form-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: 600;
+}
+
+.btn-primary {
+  background-color: #007BFF;
+  border-color: #007BFF;
+}
+
+.btn-primary:hover {
+  background-color: #0069D9;
+  border-color: #0062CC;
+}
+.star-rating {
+  display: inline-block;
+  font-size: 2em;
+  font-family: sans-serif;
+  color: #ccc;
+  direction: rtl;
+}
+.star-rating input[type="radio"] {
+  display: none;
+}
+.star-rating label {
+  display: inline-block;
+  cursor: pointer;
+  padding: 0 0.25em;
+  margin-left: 0.1em;
+}
+.star-rating label:hover,
+.star-rating input[type="radio"]:checked + label {
+  color: gold;
+}
+
+
+
+
+                    /* signup  */
+
+
+                    form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0069d9;
+}
+
+
+    </style>
+</head>
+<body>
+    
+
+    <div class="form-container">
+        <form class="feedback-form">
+          <h2 class="form-title">Feedback Form</h2>
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+          </div>
+      
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+      
+          <div class="form-group">
+   
+            <label for="rating">Rating:</label>
+            <div class="star-rating">
+              <input id="star-5" type="radio" name="rating" value="5">
+              <label for="star-5" title="5 stars">&#9733;5</label>
+              <input id="star-4" type="radio" name="rating" value="4">
+              <label for="star-4" title="4 stars">&#9733;4</label>
+              <input id="star-3" type="radio" name="rating" value="3">
+              <label for="star-3" title="3 stars">&#9733;3</label>
+              <input id="star-2" type="radio" name="rating" value="2">
+              <label for="star-2" title="2 stars">&#9733;2</label>
+              <input id="star-1" type="radio" name="rating" value="1">
+              <label for="star-1" title="1 star">&#9733;1</label>
+            </div>
+            
+            
+          </div>
+      
+          <div class="form-group">
+            <label for="comments">Comments:</label>
+            <textarea class="form-control" id="comments" name="comments"></textarea>
+          </div>
+      
+         <a href="contactus.html">  <button type="submit" class="btn btn-primary" id="feedback-1">Submit</button> </a>
+        </form>
+      </div>
+      
+  
+      <br><br>
+
+      <script>
+
+
+
+  const form = document.querySelector('.feedback-form');
+  const submitButton = form.querySelector('button[type="submit"]');
+  
+  form.addEventListener('submit', (event) => {
+    event.preventDefault(); // prevent default form submission behavior
+    
+    // Disable submit button to prevent multiple form submissions
+    submitButton.disabled = true;
+    
+    // Perform form validation before submission
+    if (form.checkValidity()) {
+      // Submit form data using AJAX or Fetch API
+      // ...
+      
+      // Redirect to the desired page after successful submission
+      window.location.href = 'contactus.html';
+    }
+    
+    // Re-enable submit button after a short delay
+    setTimeout(() => {
+      submitButton.disabled = false;
+    }, 2000);
+  });
+
+
+</script>
+
+
+
+<script src="jquery/jq-index.js"></script>
+
+</body>
+</html>
